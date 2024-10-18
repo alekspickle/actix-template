@@ -1,0 +1,33 @@
+{% extends "main.html" %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<!-- Main Content -->
+<div class="container mx-auto p-6">
+    <div class="max-w-xl mx-auto">
+        <!-- Form to send new post to the server -->
+        <form id="post-form" hx-post="/add-post" hx-target="#post-list" hx-swap="beforeend" class="mb-6">
+            <textarea name="title" class="w-full p-4 border border-gray-300 rounded-lg mb-2" placeholder="title"></textarea>
+            <textarea name="content" class="w-full p-4 border border-gray-300 rounded-lg mb-2" placeholder="content goes here..."></textarea>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">post</button>
+        </form>
+
+        <!-- Posts -->
+        <ul id="post-list" class="list-disc list-inside space-y-4">
+            {% for post in posts %}
+            <!-- Single post as list item -->
+            <li id="post-{{ post.id }}" class="bg-white p-4 border border-gray-200 rounded-lg">
+                <p>{{ post.title }}</p>
+                <p hx-get="/edit-post/{{ post.id }}" hx-trigger="dblclick" hx-target="this">{{ post.content }}</p>
+                <div class="mt-2">
+                    <button hx-delete="/delete-post/{{ post.id }}" hx-target="#post-{{ post.id }}" class="text-red-500 text-sm">
+                        delete
+                    </button>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock content %}
