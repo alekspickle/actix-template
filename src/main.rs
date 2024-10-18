@@ -4,7 +4,7 @@
 //! Template to have something to get-go in some situations
 //!
 //! This template provides:
-//! - [x] Axum server(with middleware)
+//! - [x] Actix server(with middleware)
 //! - [x] Templates
 //! - [x] Containerization
 //! - [ ] NATS integration setup
@@ -15,7 +15,6 @@ use actix_web::{middleware, web, App, HttpServer};
 
 mod error;
 mod handlers;
-//mod middleware;
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
