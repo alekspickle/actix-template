@@ -26,7 +26,11 @@ async fn main() -> anyhow::Result<()> {
         App::new()
             .wrap(middleware::Logger::default())
             .service(web::resource("/").route(web::get().to(handlers::home)))
-            .service(Files::new("/", "./static/"))
+            .service(
+                Files::new("/static", "./static")
+                    .show_files_listing()
+                    .index_file("custom.css"),
+            )
             .service(web::resource("/posts").route(web::get().to(handlers::posts)))
             .service(web::resource("/hello").route(web::get().to(handlers::hello)))
     })

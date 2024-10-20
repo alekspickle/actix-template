@@ -7,7 +7,7 @@
     <div class="max-w-xl mx-auto">
         <!-- Form to send new post to the server -->
         <form id="post-form" hx-post="/add-post" hx-target="#post-list" hx-swap="beforeend" class="mb-6">
-            <textarea name="title" class="w-full p-4 border border-gray-300 rounded-lg mb-2" placeholder="title"></textarea>
+            <textarea name="title" class="px-2 border border-gray-300 rounded-lg mb-2" placeholder="title"></textarea>
             <textarea name="content" class="w-full p-4 border border-gray-300 rounded-lg mb-2" placeholder="content goes here..."></textarea>
             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">post</button>
         </form>

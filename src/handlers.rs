@@ -25,11 +25,6 @@ pub async fn home() -> Result<impl Responder> {
     Ok(Html::new(html))
 }
 
-pub async fn files(req: HttpRequest) -> Result<NamedFile> {
-    let path: PathBuf = req.match_info().query("filename").parse().unwrap();
-    Ok(NamedFile::open(path)?)
-}
-
 pub async fn hello(query: web::Query<HashMap<String, String>>) -> Result<impl Responder> {
     let name = query.get("name").map_or("stranger", |l| l);
     let html = templates::Hello {
