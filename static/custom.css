@@ -3,7 +3,7 @@ body {
     padding: 0;
 }
 
-body:after {
+main {
     content: '';
     display: block;
     z-index: -1;
@@ -14,31 +14,44 @@ body:after {
     left: 0;
     background-image: linear-gradient(0deg, #2b596e 0px, #3d4da8 100%);
     /* background-size: 200% 300%;
-    animation: rotate-gradient linear 3s infinite;
-    overflow: hidden; */
+animation: rotate-gradient linear 3s infinite;
+overflow: hidden; */
 }
 
 canvas {
-  display: block;
-  vertical-align: bottom;
+    display: block;
+    vertical-align: bottom;
+}
+
+/* ---- particles.js container ---- */
+
+#particles-js {
+    z-index: -2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
 }
 
 @keyframes rotate-gradient {
-    to {
-        transform: rotate(360deg)
-    }
+to {
+    transform: rotate(360deg)
+}
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* height: 97vh; */
-    width: 100%;
-    overflow: hidden;
-}
-
+/* main { */
+/*     display: flex; */
+/*     flex-direction: column; */
+/*     justify-content: center; */
+/*     align-items: center; */
+/*     /* height: 97vh; */ */
+/*     width: 100%; */
+/*     overflow: hidden; */
+/* } */
+/**/
 nav {
     display: flex;
     justify-content: center;
